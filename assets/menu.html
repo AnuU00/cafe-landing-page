@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceylon Brew Café - Menu</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+        /* Menu Specific Overrides */
+        body {
+            padding-top: 80px; /* Space for fixed navbar */
+        }
+        .menu-page-header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #f9f9f9;
+            margin-bottom: 40px;
+        }
+        .menu-page-header h1 {
+            color: var(--primary-color);
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .menu-section {
+            margin-bottom: 60px;
+        }
+        .menu-section h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .menu-list-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            border-bottom: 1px dotted #ddd;
+            padding-bottom: 15px;
+        }
+        .item-details h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .item-details p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        .item-price {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-left: 20px;
+        }
+        @media print {
+            .navbar, footer, .no-print { display: none; }
+            body { padding-top: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Ceylon Brew Café</a>
+            <div class="nav-links">
+                <a href="../index.html#home">Home</a>
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#menu">Menu</a>
+                <a href="../index.html#gallery">Gallery</a>
+                <a href="../index.html#contact" class="btn-primary small">Visit Us</a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-page-header">
+        <div class="container">
+            <h1>Our Full Menu</h1>
+            <p>Fresh brews, warm vibes, and local flavours.</p>
+            <div class="no-print" style="margin-top: 20px;">
+                <button onclick="window.print()" class="btn-primary small"><i class="fas fa-print"></i> Print Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="menu-section">
+            <h2>Coffee</h2>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Ceylon Latte</h3>
+                    <p>Rich espresso with steamed milk and a touch of local spice.</p>
+                </div>
+                <div class="item-price">Rs. 850</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Iced Americano</h3>
+                    <p>Chilled espresso over ice, perfect for the heat.</p>
+                </div>
+                <div class="item-price">Rs. 650</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Cardamom Cappuccino</h3>
+                    <p>Classic cappuccino infused with aromatic cardamom.</p>
+                </div>
+                <div class="item-price">Rs. 900</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Espresso</h3>
+                    <p>Single shot of premium Ceylon coffee.</p>
+                </div>
+                <div class="item-price">Rs. 450</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Mocha</h3>
+                    <p>Espresso with chocolate and steamed milk.</p>
+                </div>
+                <div class="item-price">Rs. 950</div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Snacks</h2>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Chicken Sub</h3>
+                    <p>Grilled chicken, fresh veggies, and house sauce.</p>
+                </div>
+                <div class="item-price">Rs. 950</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Cheese Toastie</h3>
+                    <p>Melted cheddar and mozzarella on toasted bread.</p>
+                </div>
+                <div class="item-price">Rs. 650</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Spicy Fish Bun</h3>
+                    <p>Traditional Sri Lankan fish bun.</p>
+                </div>
+                <div class="item-price">Rs. 150</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Vegetable Roti</h3>
+                    <p>Flatbread stuffed with spicy vegetable filling.</p>
+                </div>
+                <div class="item-price">Rs. 120</div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Bakery</h2>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Butter Croissant</h3>
+                    <p>Flaky, buttery, and freshly baked.</p>
+                </div>
+                <div class="item-price">Rs. 550</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Chocolate Muffin</h3>
+                    <p>Decadent chocolate muffin with chocolate chips.</p>
+                </div>
+                <div class="item-price">Rs. 450</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Cinnamon Roll</h3>
+                    <p>Soft roll with cinnamon sugar glaze.</p>
+                </div>
+                <div class="item-price">Rs. 500</div>
+            </div>
+            <div class="menu-list-item">
+                <div class="item-details">
+                    <h3>Banana Bread</h3>
+                    <p>Moist slice of homemade banana bread.</p>
+                </div>
+                <div class="item-price">Rs. 350</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <h3>Ceylon Brew Café</h3>
+                <p>Your Daily Dose of Island-Crafted Coffee</p>
+            </div>
+            <div class="footer-links">
+                <a href="tel:0113456789">011 345 6789</a>
+                <a href="mailto:info@ceylonbrew.lk">info@ceylonbrew.lk</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Ceylon Brew Café. All Rights Reserved.</p>
+            <p style="margin-top: 5px; font-size: 0.8rem; opacity: 0.7;">Website creator: Anushka Udayanga</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
