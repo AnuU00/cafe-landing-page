@@ -28,6 +28,10 @@
                 <a href="#menu">Menu</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#contact" class="btn-primary small">Visit Us</a>
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
             </div>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
@@ -67,6 +71,10 @@
                         <i class="fas fa-shopping-bag"></i>
                         <span>Takeaway</span>
                     </div>
+                    <div class="feature-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Order Online</span>
+                    </div>
                 </div>
             </div>
             <div class="about-image">
@@ -78,73 +86,9 @@
     <!-- Menu Preview Section -->
     <section id="menu" class="menu section-padding">
         <div class="container">
-            <h2 class="section-title">Our Favorites</h2>
-            <div class="menu-grid">
-                <!-- Coffee -->
-                <div class="menu-card">
-                    <img src="assets/images/latte.jpg" alt="Ceylon Latte">
-                    <div class="menu-card-content">
-                        <div class="menu-card-header">
-                            <h4>Ceylon Latte</h4>
-                            <span class="price">Rs. 850</span>
-                        </div>
-                        <p>Rich espresso with steamed milk and a touch of local spice.</p>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <img src="assets/images/americano.jpg" alt="Iced Americano">
-                    <div class="menu-card-content">
-                        <div class="menu-card-header">
-                            <h4>Iced Americano</h4>
-                            <span class="price">Rs. 650</span>
-                        </div>
-                        <p>Chilled espresso over ice, perfect for the heat.</p>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <img src="assets/images/cappuccino.jpg" alt="Cardamom Cappuccino">
-                    <div class="menu-card-content">
-                        <div class="menu-card-header">
-                            <h4>Cardamom Cappuccino</h4>
-                            <span class="price">Rs. 900</span>
-                        </div>
-                        <p>Classic cappuccino infused with aromatic cardamom.</p>
-                    </div>
-                </div>
-
-                <!-- Snacks -->
-                <div class="menu-card">
-                    <img src="assets/images/chicken-sub.jpg" alt="Chicken Sub">
-                    <div class="menu-card-content">
-                        <div class="menu-card-header">
-                            <h4>Chicken Sub</h4>
-                            <span class="price">Rs. 950</span>
-                        </div>
-                        <p>Grilled chicken, fresh veggies, and house sauce.</p>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <img src="assets/images/cheese-toastie.jpg" alt="Cheese Toastie">
-                    <div class="menu-card-content">
-                        <div class="menu-card-header">
-                            <h4>Cheese Toastie</h4>
-                            <span class="price">Rs. 650</span>
-                        </div>
-                        <p>Melted cheddar and mozzarella on toasted bread.</p>
-                    </div>
-                </div>
-
-                <!-- Bakery -->
-                <div class="menu-card">
-                    <img src="assets/images/croissant.jpg" alt="Butter Croissant">
-                    <div class="menu-card-content">
-                        <div class="menu-card-header">
-                            <h4>Butter Croissant</h4>
-                            <span class="price">Rs. 550</span>
-                        </div>
-                        <p>Flaky, buttery, and freshly baked.</p>
-                    </div>
-                </div>
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-grid" id="menu-grid">
+                <!-- Menu items will be rendered here by JavaScript -->
             </div>
             <div class="menu-cta">
                 <a href="assets/menu.html" target="_blank" class="btn-primary">View Full Menu</a>
@@ -269,6 +213,101 @@
             <p style="margin-top: 5px; font-size: 0.8rem; opacity: 0.7;">Website creator: Anushka Udayanga</p>
         </div>
     </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be rendered here -->
+            <div class="empty-cart-message">Your cart is empty.</div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">Rs. 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (5%):</span>
+                    <span id="cart-tax">Rs. 0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="cart-total">Rs. 0</span>
+                </div>
+            </div>
+
+            <!-- Pickup Form -->
+            <div class="pickup-form">
+                <h4>Pickup Details</h4>
+                
+                <div class="form-group">
+                    <label for="customer-name">Name <span class="required">*</span></label>
+                    <input type="text" id="customer-name" placeholder="Your Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-phone">Phone <span class="required">*</span></label>
+                    <input type="tel" id="customer-phone" placeholder="077 123 4567" required>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="pickup-asap" checked>
+                    <label for="pickup-asap">Pickup ASAP</label>
+                </div>
+
+                <div class="datetime-group" id="datetime-group" style="display: none;">
+                    <div class="form-group">
+                        <label for="pickup-date">Date <span class="required">*</span></label>
+                        <input type="date" id="pickup-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup-time">Time <span class="required">*</span></label>
+                        <input type="time" id="pickup-time">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="order-notes">Special Notes (Optional)</label>
+                    <textarea id="order-notes" rows="2" placeholder="Any special requests?"></textarea>
+                </div>
+
+                <button id="whatsapp-order-btn" class="btn-primary full-width" disabled>
+                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                </button>
+                <p class="privacy-note">By ordering you consent to share your details with us for order processing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <i class="fab fa-whatsapp modal-icon"></i>
+            <h3>Redirecting to WhatsApp</h3>
+            <p>We’re opening WhatsApp with your order. Please press <strong>SEND</strong> in WhatsApp to place your order.</p>
+            <p>Our staff will reply shortly at <span id="confirm-phone"></span>.</p>
+            <div class="modal-buttons">
+                <button class="btn-primary" id="modal-ok-btn">OK</button>
+                <button class="btn-secondary" id="modal-fallback-btn">I didn't get redirected</button>
+            </div>
+            
+            <!-- Fallback Area (Hidden by default) -->
+            <div id="fallback-area" style="display: none; margin-top: 20px;">
+                <p>Copy the message below and send it to <strong>+94 77 123 4567</strong></p>
+                <textarea id="fallback-message" readonly></textarea>
+                <button class="btn-secondary small" id="copy-btn">Copy Text</button>
+                <a href="tel:+94771234567" class="btn-primary small">Call to Order</a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
